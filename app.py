@@ -4,7 +4,7 @@ import pandas as pd
 st.title("Netflix Data Analysis Dashboard")
 
 # Load data
-df = pd.read_csv("C:\Users\sudin\Downloads\netflix_titles.csv\netflix_titles.csv")
+df = pd.read_csv(r"C:\Users\sudin\Downloads\netflix_titles.csv\netflix_titles.csv")
 
 # Convert date
 df["date_added"] = pd.to_datetime(df["date_added"], errors="coerce")
@@ -35,5 +35,6 @@ countries = df["country"].dropna().str.split(", ").explode()
 top_countries = countries.value_counts().head(10)
 
 st.bar_chart(top_countries)
+
 
 
